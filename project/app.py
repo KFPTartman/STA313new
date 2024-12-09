@@ -1,7 +1,14 @@
 from flask import Flask
 from dash import Dash, dcc, html, Input, Output
 
+from flask import Flask
+import os
+
 flask_app = Flask(__name__)
+
+@flask_app.route("/")
+def home():
+    return "Hello, Render!"
 
 dash_app = Dash(
     __name__,
@@ -37,23 +44,30 @@ dash_app.layout = html.Div(
     [Input("tabs", "value")]
 )
 
+
 def update_visualization(selected_tab):
-    if selected_tab == "Tab 1": # GDP map
-        with open("templates/vis.html", "r") as file:
+    # Get the base directory dynamically
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    if selected_tab == "Tab 1":  # GDP map
+        file_path = os.path.join(base_dir, "templates", "vis.html")
+        with open(file_path, "r") as file:
             html_content = file.read()
         return html.Iframe(
             srcDoc=html_content,
             style={"width": "100%", "height": "800px", "border": "none"}
         )
-    if selected_tab == "Tab 2": # Volume by Infrastructure
-        with open("templates/vis2.html", "r") as file:
+    if selected_tab == "Tab 2":  # Volume by Infrastructure
+        file_path = os.path.join(base_dir, "templates", "vis2.html")
+        with open(file_path, "r") as file:
             html_content = file.read()
         return html.Iframe(
             srcDoc=html_content,
             style={"width": "100%", "height": "800px", "border": "none"}
         )
-    if selected_tab == "Tab 3": # Optimal vs Actual Highway
-        with open("templates/vis4.html", "r") as file:
+    if selected_tab == "Tab 3":  # Optimal vs Actual Highway
+        file_path = os.path.join(base_dir, "templates", "vis4.html")
+        with open(file_path, "r") as file:
             html_content = file.read()
         return html.Iframe(
             srcDoc=html_content,
@@ -61,6 +75,7 @@ def update_visualization(selected_tab):
         )
     else:
         return html.Div(f"No visualization available for {selected_tab}.")
+
 
 
 if __name__ == "__main__":
