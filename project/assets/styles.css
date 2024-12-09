@@ -1,0 +1,38 @@
+/* General styles */
+body {
+    background-color: #ADD8E6; /* Light gray background */
+    font-family: "Times New Roman", sans-serif; /* Font for entire page */
+    margin: 0;
+    padding: 0;
+}
+
+/* Title styling */
+h1 {
+    text-align: center;
+    color: #181E20;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+/* Tabs styling */
+.dash-tabs {
+    background-color: #ffffff; /* White tab background */
+    color: #000000; /* Black text color */
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Visualization container */
+#tabContent {
+    margin-top: 20px;
+    background-color: #D0E8F0; /* White container background */
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply Roboto font globally */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+}
