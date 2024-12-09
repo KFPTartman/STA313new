@@ -15,18 +15,16 @@ dash_app = Dash(
 dash_app.layout = html.Div(
 
     [
-    html.H1("Dynamic Tableau Visualizations"),
-
-
+    html.H1("Transporation Infrastructures and the Economic Development in China"),
 
     # Tabs for different Tableau visualizations
     dcc.Tabs(
         id="tabs",
         value="Tab 1",
         children=[
-            dcc.Tab(label="Tab 1", value="Tab 1"),
-            dcc.Tab(label="Tab 2", value="Tab 2"),
-            dcc.Tab(label="Tab 3", value="Tab 3"),
+            dcc.Tab(label="Overview of Passenger Volume", value="Tab 1"),
+            dcc.Tab(label="Highway Infrastructure", value="Tab 2"),
+            dcc.Tab(label="Highway Development Envision", value="Tab 3"),
         ]
     ),
 
@@ -40,13 +38,12 @@ dash_app.layout = html.Div(
     [Input("tabs", "value")]
 )
 
-
 def update_visualization(selected_tab):
     # Get the base directory dynamically
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     if selected_tab == "Tab 1":  # GDP map
-        file_path = os.path.join(base_dir, "templates", "vis.html")
+        file_path = os.path.join(base_dir, "templates", "vis2.html")
         with open(file_path, "r") as file:
             html_content = file.read()
         return html.Iframe(
@@ -54,7 +51,7 @@ def update_visualization(selected_tab):
             style={"width": "100%", "height": "800px", "border": "none"}
         )
     if selected_tab == "Tab 2":  # Volume by Infrastructure
-        file_path = os.path.join(base_dir, "templates", "vis2.html")
+        file_path = os.path.join(base_dir, "templates", "vis.html")
         with open(file_path, "r") as file:
             html_content = file.read()
         return html.Iframe(
@@ -71,7 +68,6 @@ def update_visualization(selected_tab):
         )
     else:
         return html.Div(f"No visualization available for {selected_tab}.")
-
 
 
 if __name__ == "__main__":
