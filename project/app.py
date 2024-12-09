@@ -6,10 +6,6 @@ import os
 
 flask_app = Flask(__name__)
 
-@flask_app.route("/")
-def home():
-    return "Hello, Render!"
-
 dash_app = Dash(
     __name__,
     server=flask_app,
