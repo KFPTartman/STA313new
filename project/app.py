@@ -15,7 +15,7 @@ dash_app = Dash(
 dash_app.layout = html.Div(
 
     [
-    html.H1("Transporation Infrastructures and the Economic Development in China"),
+    html.H1("Development of Transportation in China"),
 
     # Tabs for different Tableau visualizations
     dcc.Tabs(
