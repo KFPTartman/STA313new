@@ -24,7 +24,8 @@ dash_app.layout = html.Div(
         children=[
             dcc.Tab(label="1. Overview of Passenger Volume", value="Tab 1"),
             dcc.Tab(label="2. Highway Infrastructure", value="Tab 2"),
-            dcc.Tab(label="3. Highway Development Envision", value="Tab 3"),
+            dcc.Tab(label="3. Permanent", value="Tab 3"),
+            dcc.Tab(label="4. Highway Development Envision", value="Tab 4"),
         ]
     ),
 
@@ -58,7 +59,15 @@ def update_visualization(selected_tab):
             srcDoc=html_content,
             style={"width": "100%", "height": "800px", "border": "none"}
         )
-    if selected_tab == "Tab 3":  # Optimal vs Actual Highway
+    if selected_tab == "Tab 3":  # Some vis that I don't know yet
+        file_path = os.path.join(base_dir, "templates", "vis4.html")
+        with open(file_path, "r") as file:
+            html_content = file.read()
+        return html.Iframe(
+            srcDoc=html_content,
+            style={"width": "100%", "height": "800px", "border": "none"}
+        )
+    if selected_tab == "Tab 4":  # Optimal vs Actual Highway
         file_path = os.path.join(base_dir, "templates", "vis4.html")
         with open(file_path, "r") as file:
             html_content = file.read()
