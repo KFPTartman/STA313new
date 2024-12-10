@@ -22,9 +22,9 @@ dash_app.layout = html.Div(
         id="tabs",
         value="Tab 1",
         children=[
-            dcc.Tab(label="Overview of Passenger Volume", value="Tab 1"),
-            dcc.Tab(label="Highway Infrastructure", value="Tab 2"),
-            dcc.Tab(label="Highway Development Envision", value="Tab 3"),
+            dcc.Tab(label="1. Overview of Passenger Volume", value="Tab 1"),
+            dcc.Tab(label="2. Highway Infrastructure", value="Tab 2"),
+            dcc.Tab(label="3. Highway Development Envision", value="Tab 3"),
         ]
     ),
 
